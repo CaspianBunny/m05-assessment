@@ -59,10 +59,14 @@ public class Controller {
                 case ADD_ITEM:
                     addItem();
                     break;
+                case VIEW_FORAGERS_BY_STATE:
+                    viewByState();
+                    break;
             }
         } while (option != MainMenuOption.EXIT);
     }
 
+<<<<<<< HEAD
     private void addForager() {
         view.displayHeader(MainMenuOption.ADD_FORAGER.getMessage());
         Forager forager = view.makeForager();
@@ -73,6 +77,13 @@ public class Controller {
             String successMessage = String.format("Forager %s created.", result.getPayload().getId());
             view.displayStatus(true, successMessage);
         }
+=======
+    private void viewByState() {
+        String state_abbr = view.getForagerState();
+        List<Forager> foragers = foragerService.findByState(state_abbr);
+        view.displayForagers(foragers);
+        view.enterToContinue();
+>>>>>>> d12fb622063d8ab8f7fe0e8768a4b9962f98fa65
     }
 
     // top level menu

@@ -1,6 +1,7 @@
 package learn.foraging.domain;
 
 import learn.foraging.data.ForagerRepository;
+import learn.foraging.models.Forage;
 import learn.foraging.models.Forager;
 
 import java.util.List;
@@ -63,6 +64,33 @@ public class ForagerService {
                 result.addErrorMessage("forager first and last name already exists.");
             }
 
+        }
+
+        return result;
+    }
+
+    private Result<Forage> validateNulls(Forage forage) {
+        Result<Forage> result = new Result<>();
+
+        if (forage == null) {
+            result.addErrorMessage("Nothing to save.");
+            return result;
+        }
+
+        if (forage.getDate() == null) {
+            result.addErrorMessage("Forage date is required.");
+        }
+
+        if (forage.getForager() == null) {
+            result.addErrorMessage("Forager is required.");
+        }
+
+        if (forage.getItem() == null) {
+            result.addErrorMessage("Item is required.");
+        }
+
+        if(forage.getKilograms() == null) {
+            result.addErrorMessage("Kilograms are required.");
         }
 
         return result;
