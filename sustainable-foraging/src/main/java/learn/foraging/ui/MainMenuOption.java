@@ -5,6 +5,7 @@ public enum MainMenuOption {
     EXIT("Exit"),
     VIEW_FORAGES_BY_DATE("View Forages By Date"),
     VIEW_FORAGER("View Forager"),
+    VIEW_FORAGERS_BY_STATE("View Forager By State"),
     VIEW_ITEMS("View Items"),
     ADD_FORAGE("Add a Forage"),
     ADD_FORAGER("Add a Forager"),
