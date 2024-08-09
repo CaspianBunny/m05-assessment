@@ -17,6 +17,11 @@ public class ForagerRepositoryDouble implements ForagerRepository {
     }
 
     @Override
+    public List<Forager> findAll() {
+        return List.of();
+    }
+
+    @Override
     public Forager findById(int id) {
         return foragers.stream()
                 .filter(i -> i.getId() == id)
@@ -34,6 +39,21 @@ public class ForagerRepositoryDouble implements ForagerRepository {
         return foragers.stream()
                 .filter(i -> i.getState().equalsIgnoreCase(stateAbbr))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Forager add(Forager forager) {
+        return null;
+    }
+
+    @Override
+    public boolean update(Forager forager) {
+        return false;
+    }
+
+    @Override
+    public Forager findByFirstAndLastName(String firstName, String lastName) {
+        return null;
     }
 
     private static Forager makeForager() {

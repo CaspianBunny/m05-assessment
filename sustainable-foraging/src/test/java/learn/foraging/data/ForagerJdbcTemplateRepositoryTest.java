@@ -31,6 +31,22 @@ class ForagerJdbcTemplateRepositoryTest {
     }
 
     @Test
+    void shouldFindByState() {
+        List<Forager> expected = List.of(
+                FORAGER_ONE
+        );
+        List<Forager> actual = repository.findByState("OR");
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldNotFindByStateXX() {
+        List<Forager> expected = List.of();
+        List<Forager> actual = repository.findByState("NY");
+        assertEquals(expected, actual);
+    }
+
+    @Test
     void shouldNotFindByLastNameX() {
         List<Forager> expected = List.of();
         List<Forager> actual = repository.findByLastName("X");
