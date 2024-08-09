@@ -180,13 +180,14 @@ public class View {
         );
     }
     public Forager makeForager() {
-            Forager forager = new Forager();
-            forager.setFirstName(io.readRequiredString("First Name: "));
-            forager.setLastName(io.readRequiredString("Last Name: "));
-            forager.setState(io.readRequiredString("State: ").toUpperCase());
-            return forager;
+        Forager forager = new Forager();
+        forager.setFirstName(io.readRequiredString("First Name: "));
+        forager.setLastName(io.readRequiredString("Last Name: "));
+        forager.setState(io.readRequiredString("State: ").toUpperCase());
+        return forager;
+    }
 
-    public String getForagerState() {
+            public String getForagerState() {
         displayHeader(MainMenuOption.VIEW_FORAGERS_BY_STATE.getMessage());
         return io.readString("Select a State Abbreviation: ");
     }
