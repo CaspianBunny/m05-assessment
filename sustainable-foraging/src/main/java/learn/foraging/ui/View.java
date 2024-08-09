@@ -169,4 +169,12 @@ public class View {
             io.printf("%s: %s, %s, %.2f $/kg%n", item.getId(), item.getName(), item.getCategory(), item.getDollarPerKilogram());
         }
     }
+
+    public Forager makeForager() {
+            Forager forager = new Forager();
+            forager.setFirstName(io.readRequiredString("First Name: "));
+            forager.setLastName(io.readRequiredString("Last Name: "));
+            forager.setState(io.readRequiredString("State: ").toUpperCase());
+            return forager;
+    }
 }

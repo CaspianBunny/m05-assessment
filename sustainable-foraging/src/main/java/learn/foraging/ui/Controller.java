@@ -54,14 +54,25 @@ public class Controller {
                     addForage();
                     break;
                 case ADD_FORAGER:
-                    view.displayStatus(false, "NOT IMPLEMENTED");
-                    view.enterToContinue();
+                    addForager();
                     break;
                 case ADD_ITEM:
                     addItem();
                     break;
             }
         } while (option != MainMenuOption.EXIT);
+    }
+
+    private void addForager() {
+        view.displayHeader(MainMenuOption.ADD_FORAGER.getMessage());
+        Forager forager = view.makeForager();
+        Result<Forager> result = foragerService.add(forager);
+        if (!result.isSuccess()) {
+            view.displayStatus(false, result.getErrorMessages());
+        } else {
+            String successMessage = String.format("Forager %s created.", result.getPayload().getId());
+            view.displayStatus(true, successMessage);
+        }
     }
 
     // top level menu
