@@ -169,4 +169,24 @@ public class View {
             io.printf("%s: %s, %s, %.2f $/kg%n", item.getId(), item.getName(), item.getCategory(), item.getDollarPerKilogram());
         }
     }
+
+    public String getForagerState() {
+        displayHeader(MainMenuOption.VIEW_FORAGERS_BY_STATE.getMessage());
+        return io.readString("Select a State Abbreviation: ");
+    }
+
+    public void displayForagers(List<Forager> foragers) {
+        if (foragers == null || foragers.isEmpty()) {
+            io.println("No forages found.");
+            return;
+        }
+        for (Forager forager : foragers) {
+            io.printf("%s - %s %s : %s%n",
+                    forager.getId(),
+                    forager.getFirstName(),
+                    forager.getLastName(),
+                    forager.getState()
+            );
+        }
+    }
 }

@@ -60,8 +60,18 @@ public class Controller {
                 case ADD_ITEM:
                     addItem();
                     break;
+                case VIEW_FORAGERS_BY_STATE:
+                    viewByState();
+                    break;
             }
         } while (option != MainMenuOption.EXIT);
+    }
+
+    private void viewByState() {
+        String state_abbr = view.getForagerState();
+        List<Forager> foragers = foragerService.findByState(state_abbr);
+        view.displayForagers(foragers);
+        view.enterToContinue();
     }
 
     // top level menu
