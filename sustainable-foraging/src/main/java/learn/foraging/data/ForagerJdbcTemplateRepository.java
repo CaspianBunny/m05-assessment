@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 
 public class ForagerJdbcTemplateRepository implements ForagerRepository {
+    // this is a comment
 
     private final JdbcTemplate jdbcTemplate;
 
